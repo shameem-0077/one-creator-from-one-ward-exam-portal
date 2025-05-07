@@ -81,7 +81,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
         {examStatus === false ? "Start your exam" : "Exam is Completed"}
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
+      {/* <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
         {["Hours", "Minutes", "Seconds"].map((label, index) => (
           <div key={label} className="flex items-center">
             <div className="flex flex-col items-center bg-gray-100 rounded-lg p-2 sm:p-4 min-w-[80px] sm:min-w-[100px]">
@@ -101,7 +101,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
             )}
           </div>
         ))}
-      </div>
+      </div> */}
       {examStatus === false && (
         <p className="text-gray-600 text-xs sm:text-sm text-center px-4">
           You can click the button below to start your exam

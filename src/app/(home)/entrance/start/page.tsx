@@ -22,10 +22,9 @@ const ScholarshipExamStart: React.FC = () => {
     setError(false);
     setErrorMsg("");
     
-    scholarshipConfig.post("api/v1/exams/campus-exam/start/",
+    scholarshipConfig.post("api/v1/exams/exam-center-exam/start/",
       {
-        "program": campusData?.program_slug,
-        "campus_pk": campusData?.pk
+        "exam_center_id": campusData?.pk
       },
       {
         headers: {

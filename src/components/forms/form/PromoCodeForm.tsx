@@ -25,6 +25,7 @@ const PromoCodeForm = () => {
   const router = useRouter();
   const setCampusData = useUserStore((state) => state.setCampusData);
   const setLoginData = useUserStore((state) => state.setLoginData);
+  const setExamData = useUserStore((state) => state.setExamData);
 
   // Check if Zoho SalesIQ is available
   useEffect(() => {
@@ -74,6 +75,9 @@ const PromoCodeForm = () => {
           });
           router.push("/login?action=phone");
         } else if (codeType === "promo_code") {
+          setExamData({
+            examCenterId: data?.exam_center_id,
+          });
           setCampusData({
             program_slug: data?.program_slug,
           });

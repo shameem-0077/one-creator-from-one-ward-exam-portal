@@ -29,6 +29,7 @@ type LanguageData = {
 type ExamData = {
   admissionCode?: string;
   examId?: string;
+  examCenterId?: string;
   subject?: string;
   timeRemaining?: number;
   status?: "not_started" | "in_progress" | "completed";
@@ -109,6 +110,7 @@ const useUserStore = create(
         start_timestamp: '',
         end_timestamp: '',
         time_allotted: 100,
+        examCenterId: '',
       },
       setExamData: (data) =>
         set((state) => ({

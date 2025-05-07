@@ -142,13 +142,11 @@ const ScholarshipExaminationPage = () => {
     console.log("Fetching current question from API");
     
     scholarshipConfig
-      .get(`api/v1/exams/campus-exam/current-question/${examData?.examId}/`, {
+      .get(`api/v1/exams/exam-center-exam/current-question/${examData?.examId}/`, {
         headers: {
           Authorization: `Bearer ${loginData?.accessToken}`,
         },
         params: {
-          program: campusData?.program_slug,
-          campus_pk: campusData?.pk,
           lang_slug: LanguageData?.slug
         },
       })
@@ -183,13 +181,12 @@ const ScholarshipExaminationPage = () => {
     if (!loginData?.accessToken) return;
     
     scholarshipConfig
-      .get(`api/v1/exams/campus-exam/questions/status/`, {
+      .get(`api/v1/exams/exam-center-exam/questions/status/`, {
         headers: {
           Authorization: `Bearer ${loginData?.accessToken}`,
         },
         params: {
-          program: campusData?.program_slug,
-          campus_pk: campusData?.pk,
+          exam_center_id: examData?.examCenterId,
         },
       })
       .then((res) => {
@@ -242,11 +239,11 @@ const ScholarshipExaminationPage = () => {
 
     scholarshipConfig
       .post(
-        `api/v1/exams/campus-exam/question/submit-answer/${currentQuestion?.id}/`,
+        `api/v1/exams/exam-center-exam/question/submit-answer/${currentQuestion?.id}/`,
         {
           selected_option: selectedAnswer,
           is_skipped: is_skipped,
-          program: campusData?.program_slug,
+          exam_center_id: examData?.examCenterId,
         },
         {
           headers: {
@@ -310,10 +307,9 @@ const ScholarshipExaminationPage = () => {
 
     scholarshipConfig
       .post(
-        `api/v1/exams/campus-exam/edit-answer/${questionId}/`,
+        `api/v1/exams/exam-center-exam/edit-answer/${questionId}/`,
         {
           changed_option: selectedAnswer,
-          program: campusData?.program_slug,
         },
         {
           headers: {
@@ -350,13 +346,12 @@ const ScholarshipExaminationPage = () => {
     
     scholarshipConfig
       .get(
-        `api/v1/exams/campus-exam/view/question/${questionId}/`,
+        `api/v1/exams/exam-center-exam/view/question/${questionId}/`,
         {
           headers: {
             Authorization: `Bearer ${loginData?.accessToken}`,
           },
           params: {
-            program: campusData?.program_slug,
             lang_slug: LanguageData?.slug
           },
         }
@@ -403,13 +398,13 @@ const ScholarshipExaminationPage = () => {
     
     scholarshipConfig
       .get(
-        `api/v1/exams/campus-exam/view/previous-question/${questionNumber}/`,
+        `api/v1/exams/exam-center-exam/view/previous-question/${questionNumber}/`,
         {
           headers: {
             Authorization: `Bearer ${loginData?.accessToken}`,
           },
           params: {
-            program: campusData?.program_slug,
+            exam_center_id: examData?.examCenterId,
             lang_slug: LanguageData?.slug
           },
         }
@@ -460,9 +455,9 @@ const ScholarshipExaminationPage = () => {
     setTimeout(() => {
       scholarshipConfig
         .post(
-          `api/v1/exams/campus-exam/end-exam-when-timeout/`,
+          `api/v1/exams/exam-center-exam/end-exam-when-timeout/`,
           {
-            program: campusData?.program_slug,
+            exam_center_id: examData?.examCenterId,
           },
           {
             headers: {
@@ -516,9 +511,9 @@ const ScholarshipExaminationPage = () => {
     setCompltedloading(true);
     scholarshipConfig
       .post(
-        `api/v1/exams/campus-exam/student/end-exam/`,
+        `api/v1/exams/exam-center-exam/student/end-exam/`,
         {
-          program: campusData?.program_slug,
+          exam_center_id: examData?.examCenterId,
         },
         {
           headers: {

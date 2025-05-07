@@ -32,7 +32,7 @@ const LandingPage: React.FC<SpotlightProps> = () => {
   const [calendarAdded, setCalendarAdded] = useState(false);
   const [isExamScheduled, setIsExamScheduled] = useState(true);
 
-  const { campusData, loginData } = useUserStore();
+  const { campusData, loginData, examData } = useUserStore();
 
   const removeTimestampWithoutSeconds = (date: string) => {
     return date.substring(0, 16);
@@ -42,13 +42,12 @@ const LandingPage: React.FC<SpotlightProps> = () => {
     setIsLoading(true);
     setShowButton(false);
     scholarshipConfig
-      .get("api/v1/exams/campus-exam/get-examination-date/", {
+      .get("api/v1/exams/exam-center-exam/get-examination-date/", {
         headers: {
           Authorization: "Bearer " + loginData?.accessToken,
         },
         params: {
-          program: campusData?.program_slug,
-          campus_pk: campusData?.pk,
+          exam_center_id: examData?.examCenterId,
         },
       })
       .then((res) => {
