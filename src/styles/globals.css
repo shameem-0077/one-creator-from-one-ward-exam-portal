@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --text-primary: #202939;
+    --text-secondary: #697586;
+    --text-tertiary: #ffffff;
+
+    --color-primary-bg: #047853;
+    --color-primary-focused-bg: #065f43;
+    --color-primary-border: #047853;
+    --color-primary-focused-border: #065f43;
+    --color-primary-text: #ffffff;
+
+    --color-secondary-bg: #ffffff;
+    --color-secondary-focused-bg: #eef2f6;
+    --color-secondary-border: #cdd5df;
+    --color-secondary-text: #364152;
+
+    --color-tertiary-bg: #ffffff;
+    --color-tertiary-focused-bg: #ecfdf4;
+    --color-tertiary-border: #047853;
+    --color-tertiary-text: #047853;
+
+    --color-disabled-bg: #eef2f6;
+    --color-disabled-border: #e3e8ef;
+    --color-disabled-text: #9aa4b2;
+
+    --color-link-gray: #364152;
+    --color-link-color: #047853;
+  }
+
+  body {
+    @apply bg-[--background] text-[--foreground];
+  }
+}
+
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-wrapper {
+    max-width: 1440px;
+    height: 100dvh;
+    margin: 0 auto;
+    /* padding: 32px 31px; */
+  }
+  
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-number-spinners {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  .hide-number-spinners::-webkit-outer-spin-button,
+  .hide-number-spinners::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+  
+  .delay-75 {
+    animation-delay: 75ms;
+  }
+  
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+}
+
+.offline-mode button,
+.offline-mode a,
+.offline-mode input,
+.offline-mode textarea,
+.offline-mode select {
+  pointer-events: none;  /* Disable clicks */
+  opacity: 0.5;  /* Dim UI elements */
+  cursor: not-allowed; /* Show disabled cursor */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+  will-change: transform, opacity;
+}
+
