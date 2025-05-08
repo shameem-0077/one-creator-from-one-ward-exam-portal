@@ -31,7 +31,7 @@ const PhoneForm = () => {
         phone: phoneNumber,
         school_name: campusData?.name,
         campus_pk: campusData?.pk,
-        program: campusData?.program_slug,
+        program: examData?.program_slug,
         promo_code: loginData?.promoCode,
       });
 

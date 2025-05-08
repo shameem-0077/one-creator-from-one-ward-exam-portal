@@ -40,6 +40,7 @@ type ExamData = {
   start_timestamp?: string;
   end_timestamp?: string;
   time_allotted?: number;
+  program_slug?: String;
 } | null;
 
 type UserState = {
@@ -111,6 +112,7 @@ const useUserStore = create(
         end_timestamp: '',
         time_allotted: 100,
         examCenterId: '',
+        program_slug: '',
       },
       setExamData: (data) =>
         set((state) => ({

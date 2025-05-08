@@ -142,7 +142,7 @@ const ScholarshipExaminationPage = () => {
     console.log("Fetching current question from API");
     
     scholarshipConfig
-      .get(`api/v1/exams/exam-center-exam/current-question/${examData?.examId}/`, {
+      .get(`api/v1/exams/exam-center-exam/current-question/${examData?.examCenterId}/`, {
         headers: {
           Authorization: `Bearer ${loginData?.accessToken}`,
         },

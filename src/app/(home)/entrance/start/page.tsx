@@ -24,7 +24,7 @@ const ScholarshipExamStart: React.FC = () => {
     
     scholarshipConfig.post("api/v1/exams/exam-center-exam/start/",
       {
-        "exam_center_id": campusData?.pk
+        "exam_center_id": examData?.examCenterId
       },
       {
         headers: {

@@ -77,6 +77,7 @@ const PromoCodeForm = () => {
         } else if (codeType === "promo_code") {
           setExamData({
             examCenterId: data?.exam_center_id,
+            program_slug: 'one-creator-from-one-ward',
           });
           setCampusData({
             program_slug: data?.program_slug,
